@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Style Oracle | Outfit Oracle</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Syne:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="outfit-oracle">
+    <div class="bg-grid" aria-hidden="true"></div>
+    <div class="bg-radial" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <a class="brand" href="index.html">AI STYLE ORACLE</a>
+      <nav>
+        <a data-link="archetype-quiz" href="archetype-quiz.html">Archetype Quiz</a>
+        <a data-link="outfit-oracle" href="outfit-oracle.html">Outfit Oracle</a>
+        <a data-link="keep-the-kulture-alive" href="keep-the-kulture-alive.html">Keep the Kulture Alive</a>
+        <a data-link="bougie-on-a-budget" href="bougie-on-a-budget.html">Bougie on a Budget</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="panel reveal">
+        <p class="eyebrow">Outfit Oracle</p>
+        <h2>AI Stylist Generator</h2>
+        <p>
+          Enter your mood, event type, and desired aesthetic. The Oracle generates an outfit formula,
+          styling suggestions, and optional accessories.
+        </p>
+      </section>
+
+      <section class="panel reveal">
+        <div class="form-grid">
+          <label>
+            Mood
+            <input id="mood" type="text" value="Commanding" />
+          </label>
+          <label>
+            Event Type
+            <input id="event" type="text" value="Dinner Event" />
+          </label>
+          <label>
+            Desired Aesthetic
+            <input id="aesthetic" type="text" value="Futuristic Femme" />
+          </label>
+        </div>
+        <div style="margin-top: 1rem">
+          <button class="btn chrome" id="generate-outfit" type="button">Generate Outfit</button>
+        </div>
+      </section>
+
+      <section class="panel reveal" id="outfit-result" style="display: none"></section>
+    </main>
+
+    <footer>
+      <p>AI Style Oracle</p>
+      <p>Originality. Self-Expression. Cultural Memory.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="oracle.js"></script>
+  </body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Style Oracle | Archetype Quiz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Syne:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="archetype-quiz">
+    <div class="bg-grid" aria-hidden="true"></div>
+    <div class="bg-radial" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <a class="brand" href="index.html">AI STYLE ORACLE</a>
+      <nav>
+        <a data-link="archetype-quiz" href="archetype-quiz.html">Archetype Quiz</a>
+        <a data-link="outfit-oracle" href="outfit-oracle.html">Outfit Oracle</a>
+        <a data-link="keep-the-kulture-alive" href="keep-the-kulture-alive.html">Keep the Kulture Alive</a>
+        <a data-link="bougie-on-a-budget" href="bougie-on-a-budget.html">Bougie on a Budget</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="panel reveal">
+        <p class="eyebrow">Archetype Quiz</p>
+        <h2>Decode Your Fashion Frequency</h2>
+        <p>
+          Users answer fast prompts about mood, silhouettes, lifestyle, and creative influences.
+        </p>
+      </section>
+
+      <section class="panel reveal">
+        <p class="eyebrow">Prompt</p>
+        <h3>What energy do you want your outfit to carry tonight?</h3>
+        <div class="chips" id="energy-buttons">
+          <button type="button">Commanding</button>
+          <button type="button">Playful</button>
+          <button type="button">Mysterious</button>
+          <button type="button">Soft Power</button>
+        </div>
+      </section>
+
+      <section class="panel reveal">
+        <p class="eyebrow">Prompt</p>
+        <h3>Which silhouette language feels most like you?</h3>
+        <div class="chips" id="silhouette-buttons">
+          <button type="button">Street Volume</button>
+          <button type="button">Sculpted Futurism</button>
+          <button type="button">Sharp Minimal</button>
+          <button type="button">Fluid Glam</button>
+        </div>
+      </section>
+
+      <section class="panel reveal">
+        <button class="btn chrome" id="reveal-archetype" type="button">Generate Style Archetype</button>
+        <div class="result" id="archetype-result" style="display: none; margin-top: 1rem"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>AI Style Oracle</p>
+      <p>Originality. Self-Expression. Cultural Memory.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="quiz.js"></script>
+  </body>
+</html>
