@@ -313,3 +313,67 @@ footer {
     gap: 0.65rem;
   }
 }
+
+.oracle-image-grid {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.oracle-image-card {
+  border: 1px solid #404040;
+  border-radius: 16px;
+  padding: 0.65rem;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.oracle-image-card img,
+.oracle-image-frame,
+.image-fallback {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: 12px;
+  display: block;
+  object-fit: cover;
+}
+
+.oracle-image-frame {
+  background: linear-gradient(120deg, #131313, #262626, #171717);
+  background-size: 200% 100%;
+  animation: loading-shimmer 1.4s linear infinite;
+}
+
+.oracle-image-card p {
+  margin: 0.6rem 0 0;
+  font-weight: 600;
+  color: #f1f1f1;
+}
+
+.oracle-image-card small {
+  display: block;
+  margin-top: 0.3rem;
+  color: #979797;
+  font-size: 0.74rem;
+  line-height: 1.4;
+}
+
+.image-fallback {
+  background: radial-gradient(circle at 20% 15%, #8d8d8d 0%, #171717 52%, #0c0c0c 100%);
+  border: 1px solid #4f4f4f;
+}
+
+@keyframes loading-shimmer {
+  from {
+    background-position: 0% 50%;
+  }
+  to {
+    background-position: 200% 50%;
+  }
+}
+
+@media (max-width: 900px) {
+  .oracle-image-grid {
+    grid-template-columns: 1fr;
+  }
+}
