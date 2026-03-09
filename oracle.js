@@ -69,18 +69,42 @@ function renderLoading() {
   }
 }
 
-function createImageCard(src, prompt, label) {
+function buildSourceList(prompt, input, seed, variant) {
+  const encodedPrompt = encodeURIComponent(prompt);
+  const keywords = encodeURIComponent(
+    `fashion,style,editorial,${input.aesthetic},${input.mood},${input.eventType}`
+  );
+
+  return [
+    `https://image.pollinations.ai/prompt/${encodedPrompt}?width=768&height=1024&seed=${seed}&nologo=true`,
+    `https://loremflickr.com/768/1024/fashion,style?lock=${seed}`,
+    `https://source.unsplash.com/random/768x1024/?${keywords}&sig=${seed}`,
+    `https://picsum.photos/seed/oracle-${seed}-${variant}/768/1024`
+  ];
+}
+
+function createImageCard(label, prompt, sources) {
   const card = document.createElement("article");
   card.className = "oracle-image-card";
 
   const img = document.createElement("img");
-  img.src = src;
   img.alt = label;
   img.loading = "lazy";
 
-  img.onerror = () => {
-    img.replaceWith(Object.assign(document.createElement("div"), { className: "image-fallback" }));
+  let sourceIndex = 0;
+
+  const tryNextSource = () => {
+    if (sourceIndex >= sources.length) {
+      img.replaceWith(Object.assign(document.createElement("div"), { className: "image-fallback" }));
+      return;
+    }
+
+    img.src = sources[sourceIndex];
+    sourceIndex += 1;
   };
+
+  img.onerror = tryNextSource;
+  tryNextSource();
 
   const title = document.createElement("p");
   title.textContent = label;
@@ -106,10 +130,9 @@ function generateImages() {
   for (let i = 0; i < 3; i += 1) {
     const prompt = buildImagePrompt(input, i);
     const seed = seedBase + i;
-    const encodedPrompt = encodeURIComponent(prompt);
-    const src = `https://image.pollinations.ai/prompt/${encodedPrompt}?width=768&height=1024&seed=${seed}&nologo=true`;
+    const sources = buildSourceList(prompt, input, seed, i);
     const label = `Oracle Concept ${i + 1}`;
-    cards.push(createImageCard(src, prompt, label));
+    cards.push(createImageCard(label, prompt, sources));
   }
 
   imageGrid.innerHTML = "";
