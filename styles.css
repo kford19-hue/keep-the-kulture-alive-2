@@ -358,9 +358,24 @@ footer {
   line-height: 1.4;
 }
 
+.oracle-image-card .image-error {
+  color: #d6a7a7;
+}
+
 .image-fallback {
   background: radial-gradient(circle at 20% 15%, #8d8d8d 0%, #171717 52%, #0c0c0c 100%);
   border: 1px solid #4f4f4f;
+  position: relative;
+}
+
+.image-fallback::after {
+  content: "AI image unavailable";
+  position: absolute;
+  inset: auto 1rem 1rem 1rem;
+  color: #efefef;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 @keyframes loading-shimmer {
